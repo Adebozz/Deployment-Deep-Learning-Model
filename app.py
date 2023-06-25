@@ -9,7 +9,7 @@ import numpy as np
 # Keras
 from keras.applications.imagenet_utils import preprocess_input, decode_predictions
 from keras.models import load_model
-from keras.preprocessing import image
+from tensorflow.keras.preprocessing import image
 
 # Flask utils
 from flask import Flask, redirect, url_for, request, render_template
@@ -37,7 +37,7 @@ print('Model loaded. Check http://127.0.0.1:5000/')
 
 
 def model_predict(img_path, model):
-    img = image.load_img(img_path, target_size=(224, 224))
+    img = image.load_img(img_path, target_size=(256, 256))
 
     # Preprocessing the image
     x = image.img_to_array(img)
