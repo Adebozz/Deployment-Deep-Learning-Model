@@ -20,11 +20,12 @@ from gevent.pywsgi import WSGIServer
 app = Flask(__name__)
 
 # Model saved with Keras model.save()
-MODEL_PATH = 'models/model_resnet.h5'
+MODEL_PATH = 'models/imageclassifier.h5'
 
 # Load your trained model
 model = load_model(MODEL_PATH)
-model._make_predict_function()          # Necessary
+model.make_predict_function()
+         # Necessary
 # print('Model loaded. Start serving...')
 
 # You can also use pretrained model from Keras
